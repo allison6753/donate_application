@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 export function UserType({navigation}) {
     // Todo: Add database identification for different user types
     myUser = (type) => {
-        navigation.navigate('Sign_up', {typ: type})
+        navigation.navigate('Sign_up', {userType: type})
     }
     return (
         <KeyboardAvoidingView style={styles.userTypeScreen}>
@@ -47,7 +47,7 @@ export function UserType({navigation}) {
                     />
                 </View>
             </TallFormBody>
-            <BackButton onPress={() => {navigation.navigate('LoginScreen')}}/>
+            <BackButton onPress={() => {navigation.navigate('Login')}}/>
         </KeyboardAvoidingView>
     )
 }

@@ -4,7 +4,7 @@ import { Heading } from '../containers/Header'
 import { SignUpButton, LoginButton } from "../components/buttons";
 import React, { useState } from 'react';
 import { white, light_blue, medium_blue, globalScreen, globalInput } from "../constants/globals";
-import { database } from '../database/Database';
+import { usernameExists, correctPassword, printDatabase } from '../database/Database';
 import { CurrentUserData } from '../database/CurrentUserData';
 
 
@@ -18,12 +18,37 @@ const styles = StyleSheet.create({
 })
 
 export function Login({navigation}) {
-    username = undefined;
-    password = undefined;
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     const authenticate = () => {
-        if (!database.has(username)) return false;
-        return database.get(username).password.equals(password);
+        printDatabase();
+
+        if (!username.trim()) {
+            console.log("Username is empty");
+            alert("Please enter a username");
+            return false;
+        }
+
+        if (!password.trim()) {
+            console.log("Password is empty");
+            alert("Please enter a password");
+            return false;
+        }
+
+        if (!usernameExists(username)) {
+            console.log("Invalid username");
+            alert("Username does not exist");
+            return false;
+        }
+
+        if (!correctPassword(username, password)) {
+            console.log("Incorrect password");
+            alert("Password is incorrect; please try again");
+            return false;
+        }
+
+        return true;
     }
 
     const setCurrentUserData = () => {
@@ -31,10 +56,7 @@ export function Login({navigation}) {
     }
     
     const loginUser = () => {
-        if (!authenticate()) {
-            console.log("Incorrect password");
-            alert("Email or password is incorrect; please try again");
-        } else {
+        if (authenticate()) {
             setCurrentUserData();
             console.log("login successful");
             navigation.navigate('Home');
@@ -50,14 +72,14 @@ export function Login({navigation}) {
                     placeholder="Username"
                     placeholderTextColor={light_blue}
                     value = {username}
-                    //onChangeText = {text => username = text}
+                    onChangeText = {text => setUsername(text)}
                     style = {styles.input}
                     />
                     <TextInput 
                     placeholder="Password"
                     placeholderTextColor={light_blue}
                     value = {password}
-                    //onChangeText = {text => password = text}
+                    onChangeText = {text => setPassword(text)}
                     style = {styles.input}
                     secureTextEntry
                     />
@@ -65,7 +87,7 @@ export function Login({navigation}) {
                 <LoginButton onPress={
                     loginUser
                 }/>
-                <SignUpButton onPress={() => {navigation.navigate('Sign_up')}}/>
+                <SignUpButton onPress={() => {navigation.navigate('UserType')}}/>
             </FormBody>
         </KeyboardAvoidingView>
     )

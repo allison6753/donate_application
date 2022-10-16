@@ -10,8 +10,7 @@ function createEnumType(values) {
 let UserType = createEnumType(['Donor', 'Shelter']);
 
 class UserData {
-    constructor(name, password, userType) {
-        this.name = name;
+    constructor(password, userType) {
         this.password = password;
         this.userType = userType;
     }
