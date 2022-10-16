@@ -2,19 +2,19 @@ import { KeyboardAvoidingView, StyleSheet, TextInput, Text } from 'react-native'
 import { TallFormBody } from "../containers/Body"
 import { SignUpButton, BackButton } from "../components/buttons"
 import React, { useState } from 'react';
-import { medium_blue, light_blue, lightest_blue, gray, dark_gray, white, globalScreen, globalInput } from '../constants/globals';
+import { medium_orange, light_orange, white, gray, dark_gray, globalScreen, globalInput } from '../constants/globals';
 import { registerDonor, registerShelter, usernameExists, printDatabase } from '../database/Database';
 
 const styles = StyleSheet.create({
-    SignUpScreen: globalScreen(lightest_blue),
+    SignUpScreen: globalScreen(white),
     inputArea: {
         width: '90%',
         paddingTop: "3%",
     },
-    input: globalInput(white, light_blue, medium_blue),
+    input: globalInput(white, light_orange, medium_orange),
     screenTitle: {
         backgroundColor: white,
-        color: medium_blue,
+        color: medium_orange,
         fontWeight: 'bold',
         textAlign:"center",
         textAlignVertical: "center",
@@ -55,6 +55,7 @@ export function Sign_up({route, navigation}) {
             userType === 'Donor' ? registerDonor(username, password) : registerShelter(username, password);
             console.log("successfully registered new user");
             printDatabase();
+            navigation.navigate('UserType')
         }
        
     }
@@ -66,14 +67,14 @@ export function Sign_up({route, navigation}) {
                 <KeyboardAvoidingView style = {styles.inputArea} >
                     <TextInput 
                         placeholder="Username"
-                        placeholderTextColor={light_blue}
+                        placeholderTextColor={light_orange}
                         value = {username}
                         onChangeText = {text => setUsername(text)}
                         style = {styles.input}
                     />
                     <TextInput 
                         placeholder="Password"
-                        placeholderTextColor={light_blue}
+                        placeholderTextColor={light_orange}
                         value = {password}
                         onChangeText = {text => setPassword(text)}
                         style = {styles.input}

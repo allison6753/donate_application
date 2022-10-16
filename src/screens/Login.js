@@ -3,7 +3,7 @@ import { FormBody } from "../containers/Body";
 import { Heading } from '../containers/Header'
 import { SignUpButton, LoginButton } from "../components/buttons";
 import React, { useState } from 'react';
-import { white, light_blue, medium_blue, globalScreen, globalInput } from "../constants/globals";
+import { white, light_orange, medium_orange, globalScreen, globalInput } from "../constants/globals";
 import { usernameExists, correctPassword, printDatabase } from '../database/Database';
 import { CurrentUserData } from '../database/CurrentUserData';
 
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: white
     },
-    input: globalInput(white, light_blue, medium_blue)
+    input: globalInput(white, light_orange, medium_orange)
 })
 
 export function Login({navigation}) {
@@ -70,14 +70,14 @@ export function Login({navigation}) {
                 <View style = {styles.inputArea} >
                     <TextInput 
                     placeholder="Username"
-                    placeholderTextColor={light_blue}
+                    placeholderTextColor={light_orange}
                     value = {username}
                     onChangeText = {text => setUsername(text)}
                     style = {styles.input}
                     />
                     <TextInput 
                     placeholder="Password"
-                    placeholderTextColor={light_blue}
+                    placeholderTextColor={light_orange}
                     value = {password}
                     onChangeText = {text => setPassword(text)}
                     style = {styles.input}

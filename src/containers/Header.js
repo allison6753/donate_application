@@ -1,6 +1,6 @@
-import logo from '../../assets/favicon.png';
+import logo from '../../assets/logo.png';
 import {View, StyleSheet, Dimensions, Text, Image} from 'react-native'
-import { medium_blue, white } from "../constants/globals"
+import { medium_orange, white } from "../constants/globals"
 
 export function Heading(props) {
     const styles = StyleSheet.create({
@@ -13,7 +13,7 @@ export function Heading(props) {
             alignItems:"center",
         },
         text: {
-            color: medium_blue,
+            color: medium_orange,
             width: "100%",
             height: "15%",
             fontSize: 18,
@@ -22,7 +22,6 @@ export function Heading(props) {
     })
     return (
         <View style={styles.Heading}>
-            <Text style={styles.text}>SOUP</Text>
             <Image source={logo} style={{resizeMode:'contain', maxWidth:"80%"}}/>
         </View>
         

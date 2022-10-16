@@ -1,9 +1,9 @@
 // Add colors and other types of values below for consistent use throughout app
 
 // UI Colors
-export const medium_blue = '#2699FB';
-export const light_blue = '#c0e2fd';
-export const lightest_blue = '#eff8ff';
+export const light_orange = '#FEDD9E';
+export const medium_orange = '#FFA071';
+export const dark_orange = '#FC6600';
 export const gray = '#bebebe';
 export const dark_gray = '#797979';
 export const pink = '#ff98d0'; //for example

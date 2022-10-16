@@ -2,11 +2,11 @@ import { KeyboardAvoidingView, StyleSheet, View, Text, Dimensions } from 'react-
 import { TallFormBody } from "../containers/Body"
 import React from 'react';
 import { BackButton, UserTypeButton } from '../components/buttons'
-import { medium_blue, lightest_blue, white } from '../constants/globals'
+import { medium_orange, light_orange, white } from '../constants/globals'
 
 const styles = StyleSheet.create({
     userTypeScreen: {
-        backgroundColor: lightest_blue,
+        backgroundColor: light_orange,
         alignItems: "center",
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
     screenTitle: {
         backgroundColor: white,
-        color: medium_blue,
+        color: medium_orange,
         fontWeight: 'bold',
         textAlign:"center",
         textAlignVertical: "center",
