@@ -5,11 +5,13 @@ import menu from "../../imgs/shelter/menu.png";
 import { Image } from "react-native";
 import { HomeCategory } from "../../ShelterComponents/HomeCategory";
 import { HomeNeed } from "../../ShelterComponents/HomeNeed";
+import { white } from "../constants/globals";
 
 const styles = StyleSheet.create({
     homeScreen: {
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,
+        backgroundColor: white,
         flex: 1,
     },
 
