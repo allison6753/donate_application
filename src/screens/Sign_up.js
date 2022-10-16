@@ -55,7 +55,7 @@ export function Sign_up({route, navigation}) {
             userType === 'Donor' ? registerDonor(username, password) : registerShelter(username, password);
             console.log("successfully registered new user");
             printDatabase();
-            navigation.navigate('UserType')
+            navigation.navigate('Login')
         }
        
     }

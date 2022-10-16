@@ -1,6 +1,6 @@
-import { KeyboardAvoidingView, StyleSheet, Text, Dimensions, View, Button} from "react-native";
-import { light_orange, medium_orange } from '../constants/globals';
-import React, { useState } from 'react';
+import { KeyboardAvoidingView, StyleSheet, Dimensions, View, Image} from "react-native";
+import { white } from '../constants/globals';
+import React from 'react';
 
 
 const styles = StyleSheet.create({
@@ -9,23 +9,30 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width,
         flex: 1,
-        backgroundColor: light_orange,
+        backgroundColor: white,
         justifyContent: 'center',
         alignItems: 'center',
     },
 
-    WelcomeText: {
-        fontSize: '30px', 
-        color: medium_orange
+    container: {
+        flex: 1,
+    },
+    image: {
+        flex: 1,
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+        justifyContent: "center"
     },
 })
 
+// For demo purposes
 export function Home({navigation}) {
     return (
         <KeyboardAvoidingView style={styles.homeScreen}>
-            <Text style={styles.WelcomeText}> 
-                {'WELCOME BACK, SOUPER!'}
-            </Text>
-        </KeyboardAvoidingView>
+    <View style={styles.container}>
+        <Image source={require('../../assets/donor_homescreen.png')} resizeMode="contain" style={styles.image}>
+    </Image>
+  </View>
+  </KeyboardAvoidingView>
     )
 }
